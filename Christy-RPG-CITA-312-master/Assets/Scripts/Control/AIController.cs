@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using RPG.Movement;
 using RPG.Core;
->>>>>>> S5L46+
 using RPG.Combat;
 using UnityEngine;
 using System;
@@ -39,26 +36,8 @@ namespace RPG.Control
             guardPosition = transform.position;
         }
 
-        Fighter fighter;
-        GameObject player;
-
-        private void Start()
-        {
-            fighter = GetComponent<Fighter>();
-            player = GameObject.FindWithTag("Player");
-        }
-
         private void Update()
         {
-<<<<<<< HEAD
-            if (InAttackRangeOfPlayer()  && fighter.CanAttack(player))
-            {
-                GetComponent<Fighter>().Attack(player);
-            }
-            else
-            {
-                fighter.Cancel();
-=======
             if (health.IsDead()) return;
 
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
@@ -72,7 +51,6 @@ namespace RPG.Control
             else
             {
                 PatrolBehaviour();
->>>>>>> S5L46+
             }
             UpdateTimers();
         }
@@ -136,18 +114,11 @@ namespace RPG.Control
             return distanceToPlayer < chaseDistance;
         }
 
-<<<<<<< HEAD
-        private bool InAttackRangeOfPlayer()
-        {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            return distanceToPlayer < chaseDistance;
-=======
         //Called by Unity
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
->>>>>>> S5L46+
         }
     }
 }
